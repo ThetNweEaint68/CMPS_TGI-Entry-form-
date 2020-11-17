@@ -1,57 +1,60 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+@section('content')
+    <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
+        <div class="absolute top-0 right-0 mt-4 mr-4">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="space-x-4">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a
+                            href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+                        >
+                            Log out
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                        <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Log in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Register</a>
                         @endif
-                    @endif
+                    @endauth
                 </div>
             @endif
+        </div>
 
-            <div class="w-full max-w-xs">
-                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
-                            Username
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
-                            Password
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="********">
-                        <p class="text-red-500 text-xs ">Please choose a password.</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                                Sign In
-                        </button>
-                        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-                            Forgot Password?
-                        </a>
-                    </div>
-                </form>
+        <div class="flex items-center justify-center">
+            <div class="flex flex-col justify-around">
+                <div class="space-y-6">
+                    <a href="{{ route('home') }}">
+                        <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
+                    </a>
+
+                    <h1 class="text-5xl font-extrabold tracking-wider text-center text-gray-600">
+                        {{ config('app.name') }}
+                    </h1>
+
+                    <ul class="list-reset">
+                        <li class="inline px-4">
+                            <a href="https://tailwindcss.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Tailwind CSS</a>
+                        </li>
+                        <li class="inline px-4">
+                            <a href="https://github.com/alpinejs/alpine" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Alpine.js</a>
+                        </li>
+                        <li class="inline px-4">
+                            <a href="https://laravel.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Laravel</a>
+                        </li>
+                        <li class="inline px-4">
+                            <a href="https://laravel-livewire.com" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Livewire</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection
