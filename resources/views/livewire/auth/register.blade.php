@@ -7,20 +7,21 @@
         </a>
 
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
-            Entry form
+            Create a new account
         </h2>
 
-        {{--<p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
+        <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
             Or
             <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                 sign in to your account
             </a>
-        </p>--}}
+        </p>
     </div>
 
-    <div>
-            <form wire:submit.prevent="register" class="col-md-12">
-                <div class="col-md-12 role-choice-wrapper">
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+            <form wire:submit.prevent="register">
+                <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
                         Name
                     </label>
@@ -34,56 +35,9 @@
                     @enderror
                 </div>
 
-            <div class="col-md-12 form-fields-container">
-                <div class="row">
-                    <label for="gender" class="block text-sm font-medium text-gray-700 leading-5">
-                        Gender
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="gender" value="male">
-                        <label class="form-check-label" for="male">Male</label>
-                        
-                        <input class="form-check-input" type="radio" name="gender" value="female">
-                        <label class="form-check-label" for="female">Female</label>
-                    </div>
-
-                    @error('gender')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <label for="birthday" class="block text-sm font-medium text-gray-700 leading-5">
-                        Birthday
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="birthday" id="birthday" type="date" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('birthday') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror" />
-                    </div>
-
-                    @error('birthday')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <label for="address" class="block text-sm font-medium text-gray-700 leading-5">
-                        Address
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="address" id="address" type="address" required class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('birthday') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror" />
-                    </div>
-
-                    @error('address')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
+                <div class="mt-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Email
+                        Email address
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -95,217 +49,29 @@
                     @enderror
                 </div>
 
-                <div class="row">
-                    <label for="confirmEmail" class="block text-sm font-medium text-gray-700 leading-5">
-                        Confirm Email
+                <div class="mt-6">
+                    <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
+                        Password
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="confirmEmail" id="confirmEmail" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('confirmEmail') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror" />
+                        <input wire:model.lazy="password" id="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('password') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror" />
                     </div>
 
-                    @error('confirmEmail')
+                    @error('password')
                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="row">
-                    <label for="phNo" class="block text-sm font-medium text-gray-700 leading-5">
-                        Phone Number
+                <div class="mt-6">
+                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
+                        Confirm Password
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="phNo" id="phNo" type="phNo" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('phNo') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror" />
-                    </div>
-
-                    @error('phNo')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <label for="bloodType" class="block text-sm font-medium text-gray-700 leading-5">
-                        Blood Type
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <select name="bloodType" class="select" tabindex="1">
-                            <option>Please Select</option>
-                            <option value="1">A+</option>
-                            <option value="2">A-</option>
-                            <option value="1">B+</option>
-                            <option value="2">B-</option>
-                            <option value="3">AB+</option>
-                            <option value="4">AB-</option>
-                            <option value="3">O+</option>
-                            <option value="4">O-</option>
-                        </select>
-                    </div>
-
-                    @error('bloodType')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <label for="hobby" class="block text-sm font-medium text-gray-700 leading-5">
-                        Hobby
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="hobby" id="hobby" type="hobby" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('hobby') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror" />
-                    </div>
-
-                    @error('hobby')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <label for="favorite_subject" class="block text-sm font-medium text-gray-700 leading-5">
-                        Favorite Subject
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="favorite_subject" id="favorite_subject" type="favorite_subject" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('favorite_subject') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror" />
-                    </div>
-
-                    @error('favorite_subject')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <label for="favorite_language" class="block text-sm font-medium text-gray-700 leading-5">
-                        Favorite Programming Language
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <select name="favorite_language" class="select" tabindex="1">
-                            <option>Please Select</option>
-                            <option value="1">PHP</option>
-                            <option value="2">JAVA</option>
-                            <option value="1">C#</option>
-                            <option value="2">HTML</option>
-                            <option value="3">CSS</option>
-                        </select>
-                    </div>
-
-                    @error('favorite_language')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <label for="cooking" class="block text-sm font-medium text-gray-700 leading-5">
-                        Cooking
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="cooking" value="yes">
-                        <label class="form-check-label" for="yes">Yes</label>
-                        
-                        <input class="form-check-input" type="radio" name="cooking" value="no">
-                        <label class="form-check-label" for="no">No</label>
+                        <input wire:model.lazy="passwordConfirmation" id="password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                     </div>
                 </div>
-
-                <div class="row">
-                    <label for="group_life_experience" class="block text-sm font-medium text-gray-700 leading-5">
-                        Group Life Experience
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="group_life_experience" value="yes">
-                        <label class="form-check-label" for="yes">Yes</label>
-                        
-                        <input class="form-check-input" type="radio" name="group_life_experience" value="no">
-                        <label class="form-check-label" for="no">No</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="eye_sight" class="block text-sm font-medium text-gray-700 leading-5">
-                        Eye Sight
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        Left : <input wire:model.lazy="eye_sight" type="text" name="eye_sight_left" value="{{ old('eye_sight_left') }}" maxlength="4" class="js-decimal input input-size3half" tabindex="1">
-                        Right : <input wire:model.lazy="eye_sight" type="text" name="eye_sight_right" value="{{ old('eye_sight_right') }}" maxlength="4" class="js-decimal input input-size3half" tabindex="1">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="color_blindness" class="block text-sm font-medium text-gray-700 leading-5">
-                        Color Blindness
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="color_blindness" value="yes">
-                        <label class="form-check-label" for="yes">Yes</label>
-                        
-                        <input class="form-check-input" type="radio" name="color_blindness" value="no">
-                        <label class="form-check-label" for="no">No</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="tattoo" class="block text-sm font-medium text-gray-700 leading-5">
-                        Tattoo
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="tattoo" value="yes">
-                        <label class="form-check-label" for="yes">Yes</label>
-                        
-                        <input class="form-check-input" type="radio" name="tattoo" value="no">
-                        <label class="form-check-label" for="no">No</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="drinking" class="block text-sm font-medium text-gray-700 leading-5">
-                        Drinking
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="drinking" value="yes">
-                        <label class="form-check-label" for="yes">Yes</label>
-                        
-                        <input class="form-check-input" type="radio" name="drinking" value="no">
-                        <label class="form-check-label" for="no">No</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="smoking" class="block text-sm font-medium text-gray-700 leading-5">
-                        Smoking
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="smoking" value="yes">
-                        <label class="form-check-label" for="yes">Yes</label>
-                        
-                        <input class="form-check-input" type="radio" name="smoking" value="no">
-                        <label class="form-check-label" for="no">No</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="medical_history" class="block text-sm font-medium text-gray-700 leading-5">
-                        Medical History
-                    </label>
-
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input class="form-check-input" type="radio" name="medical_history" value="yes">
-                        <label class="form-check-label" for="yes">Yes</label>
-                        
-                        <input class="form-check-input" type="radio" name="medical_history" value="no">
-                        <label class="form-check-label" for="no">No</label>
-                        <input type="text" name="medical_history_text" value="{{ old('medical_history_text') }}" class="js-medicalHistory input input-size6half" tabindex="1">
-                    </div>
-                </div>
-            </div>
 
                 <div class="mt-6">
                     <span class="block w-full rounded-md shadow-sm">
@@ -315,5 +81,6 @@
                     </span>
                 </div>
             </form>
+        </div>
     </div>
 </div>
