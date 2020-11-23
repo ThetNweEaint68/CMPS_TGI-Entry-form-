@@ -8,120 +8,120 @@
         <h2 class="mt-6 text-3xl font-extrabold text-left text-gray-900 leading-9">
             Entry form
         </h2>
-            <img src="{{ asset('img/intern/demo_img01.png') }}" class="js-profile_img profile_img"><br>
-        <input type="hidden" name="profile_img_check" value="true">
-        <div class="profile_group">
-            <input type="file" data-modalId="profile" id="profile_img" name="profile_img" accept="image/png,image/jpeg"><label for="profile_img" class="profile_group_input"></label>
-        </div>
-        <div class="p-5">
-            <div class="mt-2">
-                <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4 mb-4">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <form class="w-full">
-                        <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full px-3">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                                    Name
-                                </label>
-                                <input wire:model.lazy="name" class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
+            <div class="p-5">
+                <div class="mt-2">
+                    <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4 mb-4">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
-                        </div>
-                        <div class="flex flex-wrap -mx-3 mb-2">
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sex">
-                                    Gender
-                                </label>
-                                <div class="mt-1 rounded-md shadow-sm">
-                                    <input wire:model.lazy="sex" class="form-check-input" type="radio" name="sex" value="male">
-                                    <label class="form-check-label" for="sex">Male</label>
-                        
-                                    <input wire:model.lazy="sex" class="form-check-input" type="radio" name="sex" value="female">
-                                    <label class="form-check-label" for="sex">Female</label>
+                        @endif
+                        <form wire:submit.prevent="submit" class="w-full">
+                            <div class="profile">
+                                <input type="file" wire:model="image"><br>
+                                @error('image') <span class="error">{{ $message }}</span> @enderror 
+                                <br>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 mb-6">
+                                <div class="w-full px-3">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                                        Name
+                                    </label>
+                                    <input wire:model.lazy="name" class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
                                 </div>
                             </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="birthday">
-                                    Birthday
-                                </label>
-                                <input wire:model.lazy="birthday" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="birthday" type="date">
-                            </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address">
-                                    Address
-                                </label>
-                                <input wire:model.lazy="address" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="address" type="text">
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap -mx-3 mb-2">
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
-                                    Email
-                                </label>
-                                <input wire:model.lazy="email" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email">
-                            </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="confirm_email">
-                                    Confirm Email
-                                </label>
-                                <input wire:model.lazy="confirm_email" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="confirm_email" type="email">
-                            </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">
-                                    Phone Number
-                                </label>
-                                <input wire:model.lazy="phone" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="phone" type="tel">
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap -mx-3 mb-2">
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="blood_type">
-                                    Blood Type
-                                </label>
-                                <div class="relative">
-                                    <select wire:model.lazy="blood_type" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="blood_type">
-                                        <option>Select</option>
-                                        <option value="1">A+</option>
-                                        <option value="2">A-</option>
-                                        <option value="3">B+</option>
-                                        <option value="4">B-</option>
-                                        <option value="5">AB+</option>
-                                        <option value="6">AB-</option>
-                                        <option value="7">O+</option>
-                                        <option value="8">O-</option>
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            <div class="flex flex-wrap -mx-3 mb-2">
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="sex">
+                                        Gender
+                                    </label>
+                                    <div class="mt-1 rounded-md shadow-sm">
+                                        <input wire:model.lazy="sex" class="form-check-input" type="radio" name="sex" value="male">
+                                        <label class="form-check-label" for="sex">Male</label>
+                        
+                                        <input wire:model.lazy="sex" class="form-check-input" type="radio" name="sex" value="female">
+                                        <label class="form-check-label" for="sex">Female</label>
                                     </div>
                                 </div>
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="birthday">
+                                        Birthday
+                                    </label>
+                                    <input wire:model.lazy="birthday" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="birthday" type="date">
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address">
+                                        Address
+                                    </label>
+                                    <input wire:model.lazy="address" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="address" type="text">
+                                </div>
                             </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="hobby">
-                                    Hobby
-                                </label>
-                                <input wire:model.lazy="hobby" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="hobby" type="text">
+                            <div class="flex flex-wrap -mx-3 mb-2">
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+                                        Email
+                                    </label>
+                                    <input wire:model.lazy="email" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email">
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="confirm_email">
+                                        Confirm Email
+                                    </label>
+                                    <input wire:model.lazy="confirm_email" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="confirm_email" type="email">
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">
+                                        Phone Number
+                                    </label>
+                                    <input wire:model.lazy="phone" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="phone" type="tel">
+                                </div>
                             </div>
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="favorite_subject">
-                                    Favorite Subject
-                                </label>
-                                <input wire:model.lazy="favorite_subject" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="favorite_subject" type="text">
+                            <div class="flex flex-wrap -mx-3 mb-2">
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="blood_type">
+                                        Blood Type
+                                    </label>
+                                    <div class="relative">
+                                        <select wire:model.lazy="blood_type" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="blood_type">
+                                            <option>Select</option>
+                                            <option value="1">A+</option>
+                                            <option value="2">A-</option>
+                                            <option value="3">B+</option>
+                                            <option value="4">B-</option>
+                                            <option value="5">AB+</option>
+                                            <option value="6">AB-</option>
+                                            <option value="7">O+</option>
+                                            <option value="8">O-</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="hobby">
+                                        Hobby
+                                    </label>
+                                    <input wire:model.lazy="hobby" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="hobby" type="text">
+                                </div>
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="favorite_subject">
+                                        Favorite Subject
+                                    </label>
+                                    <input wire:model.lazy="favorite_subject" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="favorite_subject" type="text">
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex flex-wrap -mx-3 mb-2">
-                            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="favorite_language">
-                                    Favorite Language
-                                </label>
-                                <div class="relative">
-                                    <select wire:model.lazy="favorite_language" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="favorite_language">
+                            <div class="flex flex-wrap -mx-3 mb-2">
+                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="favorite_language">
+                                        Favorite Language
+                                    </label>
+                                    <div class="relative">
+                                        <select wire:model.lazy="favorite_language" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="favorite_language">
                                         <option>Select</option>
                                         <option value="1">PHP</option>
                                         <option value="2">C#</option>
@@ -343,12 +343,11 @@
                                             </select>
                                     </div>
                                     <div class="w-full flex-1 mx-5">
-                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="hs_document_path">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="hs_document">
                                             Maticulation Examination Pass Certicate(*pdf)
                                         </label>
                                         <div class="fileBox">
-                                            <input wire:model.lazy="hs_document_path" type="hidden" name="hs_document_path" value="{{ old('hs_document_path') }}">
-                                            <input type="file" data-modalId="file1" id="upload-form-fileselect" name="hs_document" value="" accept="application/pdf" tabindex="1">
+                                            <input wire:model="hs_document" type="file" name="hs_document" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -410,13 +409,77 @@
                                             </select>
                                     </div>
                                     <div class="w-full flex-1 mx-5">
-                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="univ_document_path">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="univ_document">
                                             Latest Report Card(*pdf)
                                         </label>
                                         <div class="fileBox">
-                                            <input wire:model.lazy="univ_document_path" type="hidden" name="univ_document_path" value="{{ old('univ_document_path') }}">
-                                            <input type="file" data-modalId="file1" id="upload-form-fileselect" name="univ_document" value="" accept="application/pdf" tabindex="1">
+                                            <input wire:model="univ_document" type="file" name="univ_document" value="">
                                         </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row border-b border-gray-200 pb-4 mb-4">
+                            <div class="w-64 font-bold h-6 mx-5 mt-3 text-gray-800">Family Structure</div>
+                                <div class="flex-1 flex flex-col md:w-1/3">
+                                    <div class="w-full flex-1 mx-5">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                                            Name
+                                        </label>
+                                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                                            <input wire:model.lazy="name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="name" type="text"> 
+                                        </div>
+                                    </div>
+                                    <div class="w-full flex-1 mx-5">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="relationship">
+                                            Relationship
+                                        </label>
+                                        <select wire:model.lazy="relationship" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>Select</option>
+                                            <option value="1">Grandfather</option>
+                                            <option value="2">Grandmother</option>
+                                            <option value="1">Father</option>
+                                            <option value="2">Mother</option>
+                                            <option value="1">Brother</option>
+                                            <option value="2">Sister</option>
+                                            <option value="1">Younger Brother</option>
+                                            <option value="2">Younger Sister</option>
+                                        </select>
+                                    </div>
+                                    <div class="w-full flex-1 mx-5">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="age">
+                                            Age
+                                        </label>
+                                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                                            <input wire:model.lazy="age" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="age" type="text"> 
+                                        </div>
+                                    </div>
+                                    <div class="w-full flex-1 mx-5">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="job">
+                                            Place of Employment/School
+                                        </label>
+                                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                                            <input wire:model.lazy="job" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="job" type="text"> 
+                                        </div>
+                                    </div>
+                                    <div class="w-full flex-1 mx-5">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="live_together">
+                                            Residing with applicant
+                                        </label>
+                                        <select wire:model.lazy="live_together" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>Select</option>
+                                            <option value="1">Yes</option>
+                                            <option value="2">NO</option>
+                                        </select>
+                                    </div>
+                                    <div class="w-full flex-1 mx-5">
+                                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="agreement">
+                                            Consents for overseas work
+                                        </label>
+                                        <select wire:model.lazy="agreement" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                            <option>Select</option>
+                                            <option value="1">Yes</option>
+                                            <option value="2">NO</option>
+                                        </select>
                                     </div>
                                 </div>
                         </div>
@@ -440,11 +503,11 @@
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label for="question_work_hard" class="block text-sm leading-5 font-medium text-gray-700">
+                                <label for="question_worked_hard" class="block text-sm leading-5 font-medium text-gray-700">
                                     What was the happiest thing that happened in your life?
                                 </label>
                                 <div class="rounded-md shadow-sm">
-                                    <textarea wire:model.lazy="question_work_hard" id="question_work_hard" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                    <textarea wire:model.lazy="question_worked_hard" id="question_worked_hard" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

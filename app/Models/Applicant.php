@@ -59,4 +59,9 @@ class Applicant extends Model
         'question_speciality',
         'question_it_technology'
     ];
+
+    public function families()
+    {
+        return $this->hasMany(FamilyStructure::class);
+    }
 }
