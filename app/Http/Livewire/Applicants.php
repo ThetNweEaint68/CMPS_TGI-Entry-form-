@@ -10,18 +10,68 @@ class Applicants extends Component
 {
     use WithFileUploads;
 
-    public $name, $upload_dir, $image, $birthday, $sex, $address, $phone, $email, $confirm_email, $blood_type, $hobby, $favorite_subject, $favorite_language, $cooking, $group_life_experience, $eye_sight_left, $eye_sight_right, $color_blindness, $tattoo, $drinking, $smoking, $medical_history, $medical_history_text, $gpa, $roll_number, $jhs_period_from, $jhs_period_to, $jhs_school_name, $jhs_status, $hs_period_from, $hs_period_to, $hs_school_name, $hs_faculty_department, $hs_status, $hs_document, $univ_period_from, $univ_period_to, $univ_school_name, $univ_school_year, $univ_faculty_department, $univ_status, $univ_document, $question_happiest_event, $question_hardest_event, $question_worked_hard, $question_outside_of_school, $question_future_workplace, $question_poor_person, $question_emphasis, $question_weak, $question_speciality, $question_it_technology;
+    public $name;
+    public $upload_dir;
+    public $image;
+    public $birthday;
+    public $sex;
+    public $address;
+    public $phone;
+    public $email;
+    public $confirm_email;
+    public $blood_type;
+    public $hobby;
+    public $favorite_subject;
+    public $favorite_language;
+    public $cooking;
+    public $group_life_experience;
+    public $eye_sight_left;
+    public $eye_sight_right;
+    public $color_blindness;
+    public $tattoo;
+    public $drinking;
+    public $smoking;
+    public $medical_history;
+    public $medical_history_text;
+    public $gpa;
+    public $roll_number;
+    public $jhs_period_from;
+    public $jhs_period_to;
+    public $jhs_school_name;
+    public $jhs_status;
+    public $hs_period_from;
+    public $hs_period_to;
+    public $hs_school_name;
+    public $hs_faculty_department;
+    public $hs_status;
+    public $hs_document;
+    public $univ_period_from;
+    public $univ_period_to;
+    public $univ_school_name;
+    public $univ_school_year;
+    public $univ_faculty_department;
+    public $univ_status;
+    public $univ_document;
+    public $question_happiest_event;
+    public $question_hardest_event;
+    public $question_worked_hard;
+    public $question_outside_of_school;
+    public $question_future_workplace;
+    public $question_poor_person;
+    public $question_emphasis;
+    public $question_weak;
+    public $question_speciality;
+    public $question_it_technology;
+
 
     public function render()
     {
-        $this->applicants = Applicant::all();
-
         return view('livewire.applicants');
     }
 
     protected $rules = [
         'name'                       => ['required', 'max:50'],
-        'birthday'                   => ['required', 'max:10',],
+        'birthday'                   => ['required', 'max:10'],
         'sex'                        => ['required'],
         'address'                    => ['required', 'max:200'],
         'phone'                      => ['required', 'numeric'],
@@ -32,6 +82,8 @@ class Applicants extends Component
         'favorite_language'          => ['required'],
         'cooking'                    => ['required'],
         'group_life_experience'      => ['required'],
+        'eye_sight_left'             => ['required'],
+        'eye_sight_right'            => ['required'],
         'color_blindness'            => ['required'],
         'tattoo'                     => ['required'],
         'drinking'                   => ['required'],
@@ -68,13 +120,79 @@ class Applicants extends Component
 
     public function store()
     {
-        $validatedData = $this->validate();
+        $this->validate();
 
-        Applicant::create($validatedData);
+        $folder = uniqid(now()->format('Ymd').'_');
 
-        $this->image->store('public/upload_dir');
-        $this->hs_document->store('public/upload_dir');
-        $this->univ_document->store('public/upload_dir');
+        $profileImg = $this->image;
+        $profileImgName = 'profile_img.' . $profileImg->getClientOriginalExtension();
+
+
+        $hsDocument = $this->hs_document;
+        $hsDocName = 'hs_document.' . $hsDocument->getClientOriginalExtension();
+
+        $univDocument = $this->univ_document;
+        $univDocName = 'univ_document.' . $univDocument->getClientOriginalExtension();
+
+        $this->image->storeAs('ApplicantDocuments/' .$folder, $profileImgName, 'public');
+        $this->hs_document->storeAs('ApplicantDocuments/' .$folder, $hsDocName, 'public');
+        $this->univ_document->storeAs('ApplicantDocuments/' .$folder, $univDocName, 'public');
+
+        $user = new Applicant();
+
+        $user->name = $this->name;
+        $user->upload_dir = $folder;
+        $user->birthday = $this->birthday;
+        $user->sex = $this->sex;
+        $user->address = $this->address;
+        $user->phone = $this->phone;
+        $user->email = $this->email;
+        $user->blood_type = $this->blood_type;
+        $user->hobby = $this->hobby;
+        $user->favorite_subject = $this->favorite_subject;
+        $user->favorite_language = $this->favorite_language;
+        $user->cooking = $this->cooking;
+        $user->group_life_experience = $this->group_life_experience;
+        $user->eye_sight_left = $this->eye_sight_left;
+        $user->eye_sight_right = $this->eye_sight_right;
+        $user->color_blindness = $this->color_blindness;
+        $user->tattoo = $this->tattoo;
+        $user->drinking = $this->drinking;
+        $user->smoking = $this->smoking;
+        $user->medical_history = $this->medical_history;
+        $user->medical_history_text = $this->medical_history_text;
+        $user->gpa = $this->gpa;
+        $user->roll_number = $this->roll_number;
+        $user->jhs_period_from = $this->jhs_period_from;
+        $user->jhs_period_to = $this->jhs_period_to;
+        $user->jhs_school_name = $this->jhs_school_name;
+        $user->jhs_status = $this->jhs_status;
+        $user->hs_period_from = $this->hs_period_from;
+        $user->hs_period_to = $this->hs_period_to;
+        $user->hs_school_name = $this->hs_school_name;
+        $user->hs_status = $this->hs_status;
+        $user->hs_document = $this->hs_document;
+        $user->hs_faculty_department = $this->hs_faculty_department;
+        $user->univ_period_from = $this->univ_period_from;
+        $user->univ_period_to = $this->univ_period_to;
+        $user->univ_school_name = $this->univ_school_name;
+        $user->univ_faculty_department = $this->univ_faculty_department;
+        $user->univ_status = $this->univ_status;
+        $user->univ_document = $this->univ_document;
+        $user->univ_school_year = $this->univ_school_year;
+        $user->question_happiest_event = $this->question_happiest_event;
+        $user->question_hardest_event = $this->question_hardest_event;
+        $user->question_worked_hard = $this->question_worked_hard;
+        $user->question_outside_of_school = $this->question_outside_of_school;
+        $user->question_future_workplace = $this->question_future_workplace;
+        $user->question_poor_person = $this->question_poor_person;
+        $user->question_emphasis = $this->question_emphasis;
+        $user->question_weak = $this->question_weak;
+        $user->question_speciality = $this->question_speciality;
+        $user->question_it_technology = $this->question_it_technology;
+
+
+        $user->save();
 
         session()->flash('message', 'Post successfully updated.');
 

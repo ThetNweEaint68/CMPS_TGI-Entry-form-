@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FamilyStructure extends Model
+class Family extends Model
 {
     use HasFactory;
 
@@ -23,5 +23,4 @@ class FamilyStructure extends Model
     {
         return $this->belongsTo(Applicant::class);
     }
-
 }

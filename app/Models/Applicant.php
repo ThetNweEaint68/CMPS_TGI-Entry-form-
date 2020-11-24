@@ -9,6 +9,8 @@ class Applicant extends Model
 {
     use HasFactory;
 
+    protected $guarded = ["id"];
+
     protected $fillable = [
         'name',
         'upload_dir',
@@ -20,7 +22,7 @@ class Applicant extends Model
         'blood_type',
         'hobby',
         'favorite_subject',
-        'favotite_language',
+        'favorite_language',
         'cooking',
         'group_life_experience',
         'eye_sight_left',
@@ -62,6 +64,6 @@ class Applicant extends Model
 
     public function families()
     {
-        return $this->hasMany(FamilyStructure::class);
+        return $this->hasMany(Family::class);
     }
 }
