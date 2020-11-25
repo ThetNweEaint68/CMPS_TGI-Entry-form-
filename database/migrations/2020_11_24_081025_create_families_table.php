@@ -24,6 +24,8 @@ class CreateFamiliesTable extends Migration
             $table->tinyInteger('agreement');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('applicant_id')->references('id')->on('applicants')->onDelete('cascade');
         });
     }
 

@@ -66,4 +66,19 @@ class Applicant extends Model
     {
         return $this->hasMany(Family::class);
     }
+
+    public function addFamilies($applicantId, $families)
+    {
+        for ($i = 0; $i < count($families['family_name']); $i++) { 
+            Family::create([
+                'applicant_id'  => $applicantId,
+                'family_name'   => $families['family_name'][$i], 
+                'relationship'  => $families['relationship'][$i], 
+                'age'           => $families['age'][$i], 
+                'job'           => $families['job'][$i], 
+                'live_together' => $families['live_together'][$i], 
+                'agreement'     => $families['agreement'][$i]
+            ]);
+        }
+    }
 }

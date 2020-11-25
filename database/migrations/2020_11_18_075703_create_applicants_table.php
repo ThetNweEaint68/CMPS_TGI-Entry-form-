@@ -14,7 +14,7 @@ class CreateApplicantsTable extends Migration
     public function up()
     {
         Schema::create('applicants', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('upload_dir')->nullable();
             $table->string('name')->nullable();
             $table->string('sex')->nullable();

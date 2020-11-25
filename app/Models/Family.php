@@ -11,7 +11,7 @@ class Family extends Model
 
     protected $fillable = [
         'applicant_id',
-        'name',
+        'family_name',
         'relationship',
         'age',
         'job',
