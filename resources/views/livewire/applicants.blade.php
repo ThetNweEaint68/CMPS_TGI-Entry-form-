@@ -41,6 +41,7 @@
                                         Name
                                     </label>
                                     <input wire:model.lazy="name" class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="name" type="text">
+                                    @error('name') <span>{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
@@ -54,6 +55,7 @@
                         
                                         <input wire:model.lazy="sex" class="form-check-input" type="radio" name="sex" value="female">
                                         <label class="form-check-label" for="sex">Female</label>
+                                        @error('sex') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -61,12 +63,14 @@
                                         Birthday
                                     </label>
                                     <input wire:model.lazy="birthday" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="birthday" type="date">
+                                    @error('birthday') <span>{{ $message }}</span> @enderror
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address">
                                         Address
                                     </label>
                                     <input wire:model.lazy="address" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="address" type="text">
+                                    @error('address') <span>{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
@@ -75,6 +79,7 @@
                                         Email
                                     </label>
                                     <input wire:model.lazy="email" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email">
+                                    @error('email') <span>{{ $message }}</span> @enderror
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="confirm_email">
@@ -87,6 +92,7 @@
                                         Phone Number
                                     </label>
                                     <input wire:model.lazy="phone" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="phone" type="tel">
+                                    @error('phone') <span>{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
@@ -106,6 +112,7 @@
                                             <option value="7">O+</option>
                                             <option value="8">O-</option>
                                         </select>
+                                        @error('blood_type') <span>{{ $message }}</span> @enderror
                                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                         </div>
@@ -116,12 +123,14 @@
                                         Hobby
                                     </label>
                                     <input wire:model.lazy="hobby" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="hobby" type="text">
+                                    @error('hobby') <span>{{ $message }}</span> @enderror
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="favorite_subject">
                                         Favorite Subject
                                     </label>
                                     <input wire:model.lazy="favorite_subject" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="favorite_subject" type="text">
+                                    @error('favorite_subject') <span>{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
@@ -137,6 +146,7 @@
                                             <option value="3">JAVA</option>
                                             <option value="4">HTML</option>
                                         </select>
+                                        @error('favorite_language') <span>{{ $message }}</span> @enderror
                                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                         </div>
@@ -152,6 +162,7 @@
                         
                                        <input wire:model.lazy="cooking" class="form-check-input" type="radio" name="cooking" value="no">
                                        <label class="form-check-label" for="cooking">No</label>
+                                       @error('cooking') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -164,6 +175,7 @@
                         
                                         <input wire:model.lazy="group_life_experience" class="form-check-input" type="radio" name="group_life_experience" value="no">
                                         <label class="form-check-label" for="group_life_experience">No</label>
+                                        @error('group_life_experience') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
@@ -173,12 +185,14 @@
                                         Eye Sight Left
                                     </label>
                                     <input wire:model.lazy="eye_sight_left" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="eye_sight_left" type="text">
+                                    @error('eye_sight_left') <span>{{ $message }}</span> @enderror
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="eye_sight_right">
                                         Eye Sight Right
                                     </label>
                                     <input wire:model.lazy="eye_sight_right" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="eye_sight_right" type="text">
+                                    @error('eye_sight_right') <span>{{ $message }}</span> @enderror
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="color_blindness">
@@ -190,6 +204,7 @@
                         
                                         <input wire:model.lazy="color_blindness" class="form-check-input" type="radio" name="color_blindness" value="no">
                                         <label class="form-check-label" for="color_blindness">No</label>
+                                        @error('color_blindness') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
@@ -204,6 +219,7 @@
                         
                                          <input wire:model.lazy="tattoo" class="form-check-input" type="radio" name="tattoo" value="no">
                                         <label class="form-check-label" for="tattoo">No</label>
+                                        @error('tattoo') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -216,6 +232,7 @@
                         
                                         <input wire:model.lazy="drinking" class="form-check-input" type="radio" name="drinking" value="no">
                                         <label class="form-check-label" for="drinking">No</label>
+                                        @error('drinking') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -228,6 +245,7 @@
                         
                                         <input wire:model.lazy="smoking" class="form-check-input" type="radio" name="smoking" value="no">
                                         <label class="form-check-label" for="smoking">No</label>
+                                        @error('smoking') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
@@ -242,6 +260,7 @@
                         
                                         <input wire:model.lazy="medical_history" class="form-check-input" type="radio" name="medical_history" value="no">
                                         <label class="form-check-label" for="medical_history">No</label>
+                                        @error('medical_history') <span>{{ $message }}</span> @enderror
 
                                         <input type="text" name="medical_history_text" value="" class="appearance-none block w-full bg-white-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     </div>
@@ -254,12 +273,14 @@
                                         GPA
                                     </label>
                                     <input wire:model.lazy="gpa" class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="gpa" type="text">
+                                    @error('gpa') <span>{{ $message }}</span> @enderror
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="roll_number">
                                         Roll Number
                                     </label>
                                     <input wire:model.lazy="roll_number" class="appearance-none block w-full bg-white-200 text-gray-700 border border-black-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="roll_number" type="text">
+                                    @error('roll_number') <span>{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <p class="font-bold text-xl mt-3">Educational Background</p>
@@ -272,6 +293,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="jhs_period_from" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="jhs_period_from" type="date"> 
+                                                @error('jhs_period_from') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -279,7 +301,8 @@
                                                 Period To
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                                                <input wire:model.lazy="jhs_period_to" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="jhs_period_to" type="date"> 
+                                                <input wire:model.lazy="jhs_period_to" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="jhs_period_to" type="date">
+                                                @error('jhs_period_to') <span>{{ $message }}</span> @enderror 
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -288,6 +311,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="jhs_school_name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="jhs_school_name" type="text"> 
+                                                 @error('jhs_school_name') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -300,6 +324,7 @@
                                                     <option value="2">Student</option>
                                                     <option value="3">Drop Out</option>
                                                 </select>
+                                                @error('jhs_status') <span>{{ $message }}</span> @enderror
                                         </div>
                                     </div>
                             </div>
@@ -311,7 +336,8 @@
                                                 Period From
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                                                <input wire:model.lazy="hs_period_from" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="hs_period_from" type="date"> 
+                                                <input wire:model.lazy="hs_period_from" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="hs_period_from" type="date">
+                                                 @error('hs_period_from') <span>{{ $message }}</span> @enderror 
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -320,6 +346,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="hs_period_to" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="hs_period_to" type="date"> 
+                                                 @error('hs_period_to') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -328,6 +355,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="hs_school_name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="hs_school_name" type="text"> 
+                                                 @error('hs_school_name') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -339,6 +367,7 @@
                                                     <option value="1">Science</option>
                                                     <option value="2">Economic</option>
                                                 </select>
+                                                 @error('hs_faculty_department') <span>{{ $message }}</span> @enderror
                                         </div>
                                         <div class="w-full flex-1 mx-5">
                                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="hs_status">
@@ -350,6 +379,7 @@
                                                     <option value="2">Student</option>
                                                     <option value="3">Drop Out</option>
                                                 </select>
+                                                 @error('hs_status') <span>{{ $message }}</span> @enderror
                                         </div>
                                         <div class="w-full flex-1 mx-5">
                                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="hs_document">
@@ -357,6 +387,7 @@
                                             </label>
                                             <div class="fileBox">
                                                 <input wire:model="hs_document" type="file" name="hs_document" value="">
+                                                 @error('hs_document') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -370,6 +401,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="univ_period_from" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="univ_period_from" type="date"> 
+                                                 @error('univ_period_from') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -378,6 +410,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="univ_period_to" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="univ_period_to" type="date"> 
+                                                 @error('univ_period_to') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -386,6 +419,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="univ_school_name" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="univ_school_name" type="text"> 
+                                                 @error('univ_school_name') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -397,6 +431,7 @@
                                                     <option value="1">4th</option>
                                                     <option value="2">5th</option>
                                                 </select>
+                                                 @error('univ_school_year') <span>{{ $message }}</span> @enderror
                                         </div>
                                         <div class="w-full flex-1 mx-5">
                                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="univ_faculty_department">
@@ -404,6 +439,7 @@
                                             </label>
                                             <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                 <input wire:model.lazy="univ_faculty_department" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="univ_faculty_department" type="text"> 
+                                                 @error('univ_faculty_department') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="w-full flex-1 mx-5">
@@ -416,6 +452,7 @@
                                                     <option value="2">Student</option>
                                                     <option value="3">Drop Out</option>
                                                 </select>
+                                                 @error('univ_status') <span>{{ $message }}</span> @enderror
                                         </div>
                                         <div class="w-full flex-1 mx-5">
                                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="univ_document">
@@ -423,6 +460,7 @@
                                             </label>
                                             <div class="fileBox">
                                                 <input wire:model="univ_document" type="file" name="univ_document" value="">
+                                                 @error('univ_document') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -440,6 +478,7 @@
                                                 </label>
                                                 <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                     <input wire:model.lazy="family_name.0" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="family_name" type="text"> 
+                                                     @error('family_name') <span>{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="w-full flex-1 mx-5">
@@ -457,6 +496,7 @@
                                                     <option value="1">Younger Brother</option>
                                                     <option value="2">Younger Sister</option>
                                                 </select>
+                                                 @error('relationship') <span>{{ $message }}</span> @enderror
                                             </div>
                                             <div class="w-full flex-1 mx-5">
                                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="age">
@@ -464,6 +504,7 @@
                                                 </label>
                                                 <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                     <input wire:model.lazy="age.0" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="age" type="text"> 
+                                                     @error('age') <span>{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="w-full flex-1 mx-5">
@@ -472,6 +513,7 @@
                                                 </label>
                                                 <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                                                     <input wire:model.lazy="job.0" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="job" type="text"> 
+                                                     @error('job') <span>{{ $message }}</span> @enderror
                                                 </div>
                                             </div>
                                             <div class="w-full flex-1 mx-5">
@@ -483,6 +525,7 @@
                                                     <option value="1">Yes</option>
                                                     <option value="2">NO</option>
                                                 </select>
+                                                 @error('live_together') <span>{{ $message }}</span> @enderror
                                             </div>
                                             <div class="w-full flex-1 mx-5">
                                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="agreement">
@@ -493,20 +536,22 @@
                                                     <option value="1">Yes</option>
                                                     <option value="2">NO</option>
                                                 </select>
+                                                 @error('agreement') <span>{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         @foreach($families as $key => $value)
                                             <div class="flex-1 flex flex-col md:w-1/3">
                                                 <div class="w-full flex-1 mx-5">
-                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="family_name">
+                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="family_name{{ $key }}">
                                                         Name
                                                     </label>
                                                     <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                                                        <input wire:model.lazy="family_name.{{ $value }}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="family_name" type="text"> 
+                                                        <input wire:model.lazy="family_name.{{ $value }}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800" id="family_name{{ $key }}" type="text">
+                                                         @error('family_name') <span>{{ $message }}</span> @enderror 
                                                     </div>
                                                 </div>
                                                 <div class="w-full flex-1 mx-5">
-                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="relationship">
+                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="relationship{{ $key }}">
                                                         Relationship
                                                     </label>
                                                     <select wire:model.lazy="relationship.{{ $value }}" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -520,25 +565,28 @@
                                                         <option value="1">Younger Brother</option>
                                                         <option value="2">Younger Sister</option>
                                                     </select>
+                                                     @error('relationship') <span>{{ $message }}</span> @enderror
                                                 </div>
                                                 <div class="w-full flex-1 mx-5">
-                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="age">
+                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="age{{ $key }}">
                                                         Age
                                                     </label>
                                                     <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                                                        <input wire:model.lazy="age.{{ $value }}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="age" type="text"> 
+                                                        <input wire:model.lazy="age.{{ $value }}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="age{{ $key }}" type="text">
+                                                         @error('age') <span>{{ $message }}</span> @enderror 
                                                     </div>
                                                 </div>
                                                 <div class="w-full flex-1 mx-5">
-                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="job">
+                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="job{{ $key }}">
                                                         Place of Employment/School
                                                     </label>
                                                     <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                                                        <input wire:model.lazy="job.{{ $value }}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="job" type="text"> 
+                                                        <input wire:model.lazy="job.{{ $value }}" class="p-1 px-2 appearance-none outline-none w-full text-gray-800 " id="job{{ $key }}" type="text"> 
+                                                         @error('job') <span>{{ $message }}</span> @enderror
                                                     </div>
                                                 </div>
                                                 <div class="w-full flex-1 mx-5">
-                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="live_together">
+                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="live_together{{ $key }}">
                                                         Residing with applicant
                                                     </label>
                                                     <select wire:model.lazy="live_together.{{ $value }}" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -546,9 +594,10 @@
                                                         <option value="1">Yes</option>
                                                         <option value="2">NO</option>
                                                     </select>
+                                                     @error('live_together') <span>{{ $message }}</span> @enderror
                                                 </div>
                                                 <div class="w-full flex-1 mx-5">
-                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="agreement">
+                                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="agreement{{ $key }}">
                                                         Consents for overseas work
                                                     </label>
                                                     <select wire:model.lazy="agreement.{{ $value }}" class="block appearance-none w-full bg-white-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -556,6 +605,7 @@
                                                         <option value="1">Yes</option>
                                                         <option value="2">NO</option>
                                                     </select>
+                                                     @error('agreement') <span>{{ $message }}</span> @enderror
                                                 </div><br>
                                                 <div class="w-full flex-1 mx-5">
                                                     <button class="shadow bg-red-400 hover:bg-black-400 focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 rounded btn-sm" wire:click.prevent="remove({{$key}})">remove</button>
@@ -571,6 +621,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_happiest_event" id="question_happiest_event" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_happiest_event') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -579,6 +630,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_hardest_event" id="question_hardest_event" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_hardest_event') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
@@ -589,6 +641,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_worked_hard" id="question_worked_hard" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_worked_hard') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -597,6 +650,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_outside_of_school" id="question_outside_of_school" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_outside_of_school') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
@@ -607,6 +661,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_future_workplace" id="question_future_workplace" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_future_workplace') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -615,6 +670,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_poor_person" id="question_poor_person" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_poor_person') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
@@ -625,6 +681,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_emphasis" id="question_emphasis" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_emphasis') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -633,6 +690,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_weak" id="question_weak" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_weak') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>
@@ -643,6 +701,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_speciality" id="question_speciality" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_speciality') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -651,6 +710,7 @@
                                     </label>
                                     <div class="rounded-md shadow-sm">
                                         <textarea wire:model.lazy="question_it_technology" id="question_it_technology" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+                                         @error('question_it_technology') <span>{{ $message }}</span> @enderror
                                     </div>
                                 </div>
                             </div>

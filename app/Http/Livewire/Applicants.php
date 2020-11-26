@@ -143,12 +143,57 @@ class Applicants extends Component
     ];
 
     protected $messages = [
-        'family_name.*.required'   => 'The family name Address cannot be empty.',
-        'relationship.*.required'  => 'The relationship cannot be empty.',
-        'age.*.required'           => 'The age cannot be empty.',
-        'job.*.required'           => 'The job cannot be empty.',
-        'live_together.*.required' => 'The live_together cannot be empty.',
-        'agreement.*.required'     => 'The agreement cannot be empty.',
+        'image.required'                   => 'The profile image is required.',
+        'name.required'                    => 'The :attribute is required.',
+        'birthday.required'                => 'The :attribute is required.',
+        'birthday.date_format'             => 'The :attribute must filled in correct form.',
+        'sex.required'                     => 'The :attribute is required.',
+        'address.required'                 => 'The :attribute is required.',
+        'phone.required'                   => 'The phone number is required.',
+        'phone.integer'                    => 'The phone number must be number.',
+        'email.required'                   => 'The :attribute is required.',
+        'email.max'                        => 'The :attribute may not be greater than 255 characters.',
+        'blood_type.required'              => 'The :attribute is required.',
+        'blood_type.integer'               => 'The :attribute must be selected.',
+        'hobby.required'                   => 'The :attribute is required.',
+        'favorite_subject.required'        => 'The :attribute is required.',
+        'favorite_language.required'       => 'The :attribute is required.',
+        'cooking.required'                 => 'The :attribute is required.',
+        'group_life_experience.required'   => 'The :attribute is required.',
+        'eye_sight_left.required'          => 'The :attribute is required.',
+        'eye_sight_right.required'         => 'The :attribute is required.',
+        'color_blindness.required'         => 'The :attribute is required.',
+        'tattoo.required'                  => 'The :attribute is required.',
+        'drinking.required'                => 'The :attribute is required.',
+        'smoking.required'                 => 'The :attribute is required.',
+        'medical_history.required'         => 'The :attribute is required.',
+        'madical_history_text.required'    => 'The :attribute is required.',
+        'gpa.required'                     => 'The :attribute is required.',
+        'roll_number.required'             => 'The :attribute is required.',
+        'jhs_period_from.required'         => 'The junior high school period(from) is required.',
+        'jhs_period_to.required'           => 'The junior high school priod(to) is required.',
+        'jhs_school_name.required'         => 'The junior high school name is required.',
+        'jhs_status.required'              => 'The junior high school final education status is required.',
+        'jhs_status.integer'               => 'The junior high school final education status must be selected.',
+        'hs_period_from.required'          => 'The high school period(from) is required.',
+        'hs_period_to.required'            => 'The high school period(to) is required.',
+        'hs_school_name.required'          => 'The high school name is required.',
+        'hs_faculty_department.required'   => 'The high school faculty department is required.',
+        'hs_status.required'               => 'The high school final education status is required.',
+        'hs_status.integer'                => 'The high school final education status must be selected.',
+        'univ_period_from.required'        => 'The university period(from) is required.',
+        'univ_period_to.required'          => 'The university period(to) is required.',
+        'univ_school_name.required'        => 'The university name is required.',
+        'univ_faculty_department.required' => 'The university faculty department is required.',
+        'univ_status.required'             => 'The university final education status is required.',
+        'univ_status.integer'              => 'The university final education status must be selected.',
+        'univ_document.required'           => 'The university latest report card is required.',
+        'family_name.*.required'           => 'The family name Address cannot be empty.',
+        'relationship.*.required'          => 'The relationship cannot be empty.',
+        'age.*.required'                   => 'The age cannot be empty.',
+        'job.*.required'                   => 'The job cannot be empty.',
+        'live_together.*.required'         => 'The live_together cannot be empty.',
+        'agreement.*.required'             => 'The agreement cannot be empty.',
     ];
 
     public function store()
@@ -240,7 +285,18 @@ class Applicants extends Component
                     'live_together.*' => 'required',
                     'agreement.*'     => 'required',
                 ]);
-                $applicant->addFamilies($applicant->id, $validatedData);
+
+                foreach ($this->family_name as $key => $value) {
+                    Family::create([
+                        'applicant_id'  => $applicant->id,
+                        'family_name'   => $this->family_name[$key], 
+                        'relationship'  => $this->relationship[$key], 
+                        'age'           => $this->age[$key], 
+                        'job'           => $this->job[$key], 
+                        'live_together' => $this->live_together[$key], 
+                        'agreement'     => $this->agreement[$key]
+                    ]);
+                }
             }
         });
         
